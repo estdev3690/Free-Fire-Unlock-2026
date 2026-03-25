@@ -1,0 +1,1689 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&display=swap");
+
+:root {
+  --bg0: #05030e;
+  --bg1: #13052a;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel2: rgba(255, 255, 255, 0.09);
+  --stroke: rgba(255, 255, 255, 0.14);
+  --stroke2: rgba(255, 255, 255, 0.22);
+  --text: rgba(255, 255, 255, 0.95);
+  --muted: rgba(255, 255, 255, 0.65);
+  --muted2: rgba(255, 255, 255, 0.45);
+  --shadow: rgba(0, 0, 0, 0.4);
+  --radius: 18px;
+  --accent: #45f6ff;
+  --gold: #ffc107;
+  --diamondBlue: #35d7ff;
+  --magenta: #ff4fd8;
+  --cyan: #45f6ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Oxanium, ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 700px at 10% 0%, rgba(255, 79, 216, 0.22), transparent 55%),
+    radial-gradient(900px 600px at 90% 20%, rgba(69, 246, 255, 0.22), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.ffg-root {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.ffg-authRoot {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  z-index: 2;
+  padding: 18px;
+  overflow: hidden;
+}
+
+.ffg-authRoot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./assets/Logo/backgroundlogin.png");
+  background-color: rgba(0, 0, 0, 0.35);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.15) contrast(1.05);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ffg-authRoot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.42),
+    rgba(0, 0, 0, 0.62)
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ffg-authGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(700px 420px at 20% 10%, rgba(255, 79, 216, 0.25), transparent 60%),
+    radial-gradient(600px 380px at 85% 15%, rgba(69, 246, 255, 0.22), transparent 60%),
+    radial-gradient(600px 420px at 55% 90%, rgba(255, 193, 7, 0.14), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ffg-authCard {
+  width: min(520px, 100%);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.22);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  padding: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.ffg-authBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.ffg-authLogo {
+  width: 42px;
+  height: 42px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 213, 74, 0.5);
+  background: rgba(255, 213, 74, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  font-size: 18px;
+}
+
+.ffg-authLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ffg-authTitle {
+  font-weight: 1000;
+  letter-spacing: 0.12em;
+  font-size: 14px;
+}
+
+.ffg-authSub {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 850;
+  font-size: 12px;
+}
+
+.ffg-authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ffg-authAvatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 213, 74, 0.35);
+  background: rgba(255, 213, 74, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 1100;
+  margin: 6px 0 6px;
+}
+
+.ffg-authLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ffg-authInput {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  outline: none;
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 13px;
+}
+
+.ffg-authError {
+  color: rgba(255, 95, 95, 0.95);
+  font-weight: 900;
+  font-size: 12px;
+  margin-top: -4px;
+}
+
+.ffg-authBtn {
+  margin-top: 6px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 213, 74, 0.85);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 211, 43, 0.95),
+    rgba(255, 211, 43, 0.55)
+  );
+  color: rgba(0, 0, 0, 0.78);
+  font-weight: 1100;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.ffg-tokenBlock {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ffg-tokenTitle {
+  font-weight: 1000;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ffg-authTokenBtn {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 1100;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.ffg-authTokenBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ffg-authResult {
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.18);
+  font-weight: 950;
+  font-size: 12px;
+}
+
+.ffg-authResult.success {
+  border-color: rgba(69, 246, 255, 0.4);
+}
+.ffg-authResult.error {
+  border-color: rgba(255, 95, 95, 0.35);
+}
+.ffg-authResult.info {
+  border-color: rgba(255, 213, 74, 0.35);
+}
+
+.ffg-toastWrap {
+  position: fixed;
+  left: 50%;
+  top: 24px;
+  transform: translateX(-50%);
+  z-index: 999;
+  padding: 0 12px;
+  width: min(520px, 100%);
+  pointer-events: none;
+}
+
+.ffg-toast {
+  pointer-events: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  max-width: 100%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 213, 74, 0.65);
+  background: rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+
+.ffg-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.05) 0px,
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px,
+        transparent 52px
+      ),
+    repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.035) 0px,
+        rgba(255, 255, 255, 0.035) 1px,
+        transparent 1px,
+        transparent 52px
+      ),
+    radial-gradient(900px 520px at 25% 10%, rgba(255, 79, 216, 0.35), transparent 60%),
+    radial-gradient(700px 420px at 85% 15%, rgba(69, 246, 255, 0.3), transparent 60%),
+    radial-gradient(900px 520px at 60% 95%, rgba(255, 213, 74, 0.14), transparent 60%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35));
+  pointer-events: none;
+}
+
+.ffg-topbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 22px;
+  gap: 16px;
+  display: none;
+}
+
+.ffg-logo {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.ffg-logoMark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--stroke);
+  box-shadow: 0 18px 40px var(--shadow);
+}
+
+.ffg-logoText {
+  line-height: 1.1;
+}
+
+.ffg-logoTitle {
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  font-size: 18px;
+}
+
+.ffg-logoSub {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ffg-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--stroke);
+  min-width: 320px;
+}
+
+.ffg-searchIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ffg-searchInput {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+}
+.ffg-searchInput::placeholder {
+  color: var(--muted2);
+}
+
+.ffg-main {
+  position: relative;
+  z-index: 1;
+  padding: 26px 18px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.ffg-left {
+  max-width: 100%;
+  width: 100%;
+}
+
+.ffg-phoneFrame {
+  width: min(520px, 100%);
+  border-radius: 34px;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(80, 15, 165, 0.22), rgba(0, 0, 0, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.ffg-phoneNav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 8px 8px;
+}
+
+.ffg-navBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 162px;
+}
+
+.ffg-navLogo {
+  width: 36px;
+  height: 36px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-weight: 1000;
+  background: linear-gradient(180deg, rgba(255, 213, 74, 0.28), rgba(255, 213, 74, 0.08));
+  border: 1px solid rgba(255, 213, 74, 0.5);
+  color: rgba(0, 0, 0, 0.78);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.ffg-navLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ffg-navBrandText {
+  line-height: 1.1;
+}
+
+.ffg-navBrandTop {
+  font-weight: 1000;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.ffg-navBrandSub {
+  margin-top: 4px;
+  font-weight: 900;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ffg-navSearch {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ffg-navSearchIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 900;
+}
+
+.ffg-navSearchInput {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 11px;
+}
+.ffg-navSearchInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ffg-userChip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+}
+
+.ffg-userAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 213, 74, 0.35);
+  background: rgba(255, 213, 74, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 1000;
+  font-size: 12px;
+}
+
+.ffg-userDiamonds {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 6px;
+}
+
+.ffg-userDiamondsValue {
+  font-weight: 1000;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.02em;
+}
+
+
+.ffg-catalogHeader {
+  margin: 4px 2px 12px;
+  padding: 12px 12px 14px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(320px 120px at 20% 0%, rgba(255, 213, 74, 0.25), transparent 60%),
+    rgba(255, 255, 255, 0.04);
+}
+
+.ffg-catalogTitle {
+  font-weight: 1000;
+  letter-spacing: 0.12em;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ffg-catalogSub {
+  margin-top: 6px;
+  font-weight: 850;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.ffg-tabs {
+  display: flex;
+  gap: 0;
+  padding: 0 8px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 213, 74, 0.25);
+  background: rgba(0, 0, 0, 0.28);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 12px 35px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  margin: 8px 0 2px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.ffg-tab {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  padding: 0 6px;
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  text-align: center;
+  font-size: 11px;
+  border-bottom: 2px solid transparent;
+  transition: color 120ms ease, border-bottom-color 120ms ease;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+
+.ffg-tab.is-active {
+  color: rgba(255, 255, 255, 0.96);
+  border-bottom-color: rgba(255, 213, 74, 0.95);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(255, 213, 74, 0.18);
+  text-shadow: 0 0 18px rgba(255, 193, 7, 0.35);
+}
+
+.ffg-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 10px 0 16px;
+}
+
+.ffg-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.16));
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.ffg-itemThumb {
+  position: relative;
+  height: 96px;
+  background: radial-gradient(120px 90px at 45% 35%, rgba(255, 255, 255, 0.18), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.ffg-itemThumb--diamonds {
+  height: 142px;
+  border-bottom: none;
+}
+
+.ffg-itemGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120px 95px at 45% 35%, var(--accent, #35d7ff), transparent 65%);
+  opacity: 0.42;
+}
+
+.ffg-thumbImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.95;
+  transform: scale(1.02);
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.ffg-itemBadge {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-weight: 800;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
+}
+
+.ffg-diamTop {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.ffg-diamTopIcon {
+  color: var(--diamondBlue);
+  font-size: 14px;
+  font-weight: 1000;
+  text-shadow: 0 0 16px rgba(69, 246, 255, 0.35);
+}
+
+.ffg-diamTopValue {
+  color: rgba(255, 255, 255, 0.96);
+  font-weight: 1100;
+  letter-spacing: 0.02em;
+  font-size: 14px;
+}
+
+.ffg-diamBottom {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 12px;
+  height: 34px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 193, 7, 0.95), rgba(255, 160, 0, 0.92));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ffg-diamBottomText {
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: 1200;
+  letter-spacing: 0.03em;
+  font-size: 13px;
+}
+
+.ffg-diamBottom--custom {
+  height: 44px;
+  padding: 6px 8px;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.ffg-customDiamondsInput {
+  flex: 1;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.14);
+  color: rgba(0, 0, 0, 0.86);
+  font-weight: 1200;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  outline: none;
+}
+
+.ffg-customDiamondsInput::placeholder {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.ffg-customSendBtn {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.22);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 1100;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.ffg-customSendBtn:hover {
+  filter: brightness(1.05);
+}
+
+.ffg-customErr {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 50px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 900;
+  color: rgba(255, 95, 95, 0.9);
+  text-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+}
+
+.ffg-itemPriceTag {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ffg-diamondIcon {
+  color: var(--diamondBlue);
+  font-size: 12px;
+  font-weight: 1000;
+}
+
+.ffg-itemPriceText {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 1000;
+  font-size: 12px;
+}
+
+.ffg-itemBody {
+  padding: 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ffg-itemTitle {
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  font-size: 13px;
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ffg-itemMeta {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 11.5px;
+}
+
+.ffg-itemActions {
+  margin-top: auto;
+}
+
+.ffg-cardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.ffg-cardPrice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.20);
+  min-width: 92px;
+  height: 30px;
+}
+
+.ffg-diamondIconSmall {
+  color: var(--diamondBlue);
+  font-weight: 1000;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.ffg-diamondIconMid {
+  color: var(--diamondBlue);
+  font-weight: 1000;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.ffg-diamondIconOff {
+  color: rgba(53, 215, 255, 0.85);
+}
+
+.ffg-diamondIconImg {
+  display: block;
+  object-fit: contain;
+}
+
+.ffg-diamondIconImg.ffg-diamondIconSmall {
+  width: 14px;
+  height: 14px;
+}
+
+.ffg-diamondIconImg.ffg-diamondIconMid {
+  width: 12px;
+  height: 12px;
+}
+
+.ffg-diamondIconImg.ffg-diamondIconOff {
+  opacity: 0.85;
+}
+
+.ffg-diamTopIconImg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  object-fit: contain;
+}
+
+.ffg-priceWithDiamond {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ffg-cardPriceText {
+  font-weight: 1000;
+  letter-spacing: 0.02em;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.ffg-cardGiftBtn {
+  flex: 1;
+  height: 30px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 213, 74, 0.95);
+  background: linear-gradient(180deg, rgba(255, 211, 43, 0.95), rgba(255, 211, 43, 0.55));
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 1100;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 2px rgba(255, 211, 43, 0.08) inset;
+  font-size: 11px;
+}
+
+.ffg-cardGiftBtn:hover {
+  filter: brightness(1.04) saturate(1.1);
+}
+
+.ffg-giftButton {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 213, 74, 0.65);
+  background: linear-gradient(180deg, rgba(255, 211, 43, 0.95), rgba(255, 211, 43, 0.55));
+  color: rgba(0, 0, 0, 0.78);
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.ffg-giftButton:hover {
+  border-color: rgba(255, 213, 74, 0.95);
+}
+
+.ffg-smallButton {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.ffg-smallButton:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.ffg-bottomCTA {
+  padding: 8px 0 0;
+}
+
+.ffg-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 0 6px;
+}
+
+.ffg-pageBtn {
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 213, 74, 0.55);
+  background: rgba(255, 213, 74, 0.10);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 1000;
+  cursor: pointer;
+}
+
+.ffg-pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ffg-pageNums {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ffg-pageNum {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.ffg-pageNum.is-active {
+  border-color: rgba(255, 213, 74, 0.7);
+  background: rgba(255, 213, 74, 0.14);
+  box-shadow: 0 0 0 2px rgba(255, 213, 74, 0.12) inset;
+}
+
+.ffg-ctaButton {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 213, 74, 0.7);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 211, 43, 0.95),
+    rgba(255, 211, 43, 0.55)
+  );
+  color: rgba(0, 0, 0, 0.78);
+  font-weight: 1000;
+  letter-spacing: 0.09em;
+  cursor: pointer;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.35);
+}
+
+.ffg-modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.22);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  padding: 14px;
+}
+
+.ffg-modalRail {
+  width: min(520px, 92vw);
+  height: min(860px, calc(100vh - 28px));
+  border-radius: 34px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 500px at 10% 20%, rgba(255, 79, 216, 0.18), transparent 55%),
+    radial-gradient(800px 480px at 90% 30%, rgba(69, 246, 255, 0.18), transparent 60%),
+    linear-gradient(180deg, rgba(26, 8, 54, 0.98), rgba(8, 2, 18, 0.98));
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: -30px 0 80px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  animation: ffg-slideIn 180ms ease-out;
+}
+
+@keyframes ffg-slideIn {
+  from {
+    transform: translateX(18px);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.ffg-modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.ffg-modalTitle {
+  font-weight: 950;
+  letter-spacing: 0.05em;
+  font-size: 15px;
+  color: rgba(255, 213, 74, 0.95);
+}
+
+.ffg-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ffg-modalContent {
+  overflow: auto;
+  padding-right: 8px;
+}
+
+.ffg-itemPreview {
+  border-radius: 18px;
+  padding: 12px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background:
+    radial-gradient(
+      420px 120px at 25% 0%,
+      color-mix(in srgb, var(--accentStrong, #45f6ff) 45%, transparent),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.05);
+}
+
+.ffg-itemPreviewImgWrap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.2);
+  height: 96px;
+  margin-bottom: 10px;
+}
+
+.ffg-itemPreviewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ffg-itemPreviewRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ffg-itemPreviewLabel {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+}
+
+.ffg-itemPreviewPill {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.16);
+  font-weight: 950;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.ffg-itemPreviewTitle {
+  margin-top: 10px;
+  font-weight: 1000;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.ffg-itemPreviewMeta {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 850;
+  font-size: 12px;
+}
+
+.ffg-section {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ffg-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 8px;
+}
+
+.ffg-input,
+.ffg-textarea,
+.ffg-select {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.15);
+  color: rgba(255, 255, 255, 0.95);
+  outline: none;
+}
+
+.ffg-textarea {
+  resize: none;
+  height: 76px;
+}
+
+.ffg-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ffg-helpRow {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ffg-friendList {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ffg-friendRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 10px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ffg-friendRow.is-selected {
+  border-color: rgba(53, 215, 255, 0.6);
+  box-shadow: 0 0 0 2px rgba(53, 215, 255, 0.15) inset;
+}
+
+.ffg-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-weight: 950;
+}
+
+.ffg-friendName {
+  font-weight: 950;
+}
+.ffg-friendSub {
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  margin-top: 2px;
+}
+.ffg-check {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(53, 215, 255, 0.18);
+  border: 1px solid rgba(53, 215, 255, 0.45);
+  font-weight: 900;
+}
+
+.ffg-twoCol {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ffg-qty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ffg-qtyBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.ffg-qtyValue {
+  flex: 1;
+  text-align: center;
+  font-weight: 950;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.ffg-couponLine {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.ffg-couponNote {
+  font-weight: 950;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.ffg-couponSub {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ffg-priceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+}
+
+.ffg-priceRow span:first-child {
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.ffg-price {
+  font-weight: 950;
+  letter-spacing: 0.02em;
+}
+
+.ffg-priceOff {
+  color: rgba(68, 255, 177, 0.95);
+}
+
+.ffg-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 8px 0 10px;
+}
+
+.ffg-priceFinal span:first-child,
+.ffg-priceFinal .ffg-price {
+  font-weight: 1000;
+}
+
+.ffg-modalFooter {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ffg-confirm {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 213, 74, 0.75);
+  background: linear-gradient(180deg, rgba(255, 211, 43, 0.95), rgba(255, 211, 43, 0.55));
+  color: rgba(0, 0, 0, 0.78);
+  font-weight: 1000;
+  letter-spacing: 0.09em;
+  cursor: pointer;
+}
+
+.ffg-confirm:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: grayscale(0.2);
+}
+
+.ffg-cancel {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.ffg-cancel:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.ffg-modalFineprint {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* YouTube step pill */
+.ffg-stepPillWrap {
+  margin-top: -4px;
+}
+
+.ffg-stepPill {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 213, 74, 0.45);
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  text-align: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.ffg-stepPill.is-done {
+  border-color: rgba(69, 246, 255, 0.55);
+  background: rgba(69, 246, 255, 0.07);
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    inset 0 0 0 1px rgba(69, 246, 255, 0.14),
+    0 18px 60px rgba(69, 246, 255, 0.06);
+}
+
+/* Gift sent animation (inside modal rail) */
+.ffg-sentOverlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 34px;
+  z-index: 5;
+  animation: ffgFadeIn 180ms ease-out;
+}
+
+.ffg-sentCard {
+  width: min(340px, 90%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 213, 74, 0.55);
+  background:
+    radial-gradient(520px 200px at 30% 0%, rgba(255, 211, 43, 0.35), transparent 60%),
+    rgba(0, 0, 0, 0.55);
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.6);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.ffg-sentIcon {
+  font-size: 54px;
+  filter: drop-shadow(0 18px 35px rgba(0, 0, 0, 0.6));
+  animation: ffgPop 650ms cubic-bezier(0.2, 0.9, 0.2, 1) infinite alternate;
+}
+
+.ffg-sentText {
+  font-weight: 1000;
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 13px;
+}
+
+.ffg-sentSparkles {
+  width: 220px;
+  height: 60px;
+  position: relative;
+}
+
+.ffg-sentSparkles::before,
+.ffg-sentSparkles::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 211, 43, 0.95), transparent 55%),
+    radial-gradient(circle at 60% 10%, rgba(69, 246, 255, 0.85), transparent 55%),
+    radial-gradient(circle at 90% 70%, rgba(255, 79, 216, 0.75), transparent 55%);
+  filter: blur(2px);
+  opacity: 0.9;
+  animation: ffgSpark 900ms ease-in-out infinite;
+}
+
+@keyframes ffgFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ffgPop {
+  from {
+    transform: scale(0.9) rotate(-2deg);
+  }
+  to {
+    transform: scale(1.07) rotate(2deg);
+  }
+}
+
+@keyframes ffgSpark {
+  0% {
+    transform: translateY(2px) scale(0.98);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.02);
+  }
+  100% {
+    transform: translateY(2px) scale(0.98);
+  }
+}
+
+/* Responsive behavior */
+@media (max-width: 760px) {
+  .ffg-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ffg-search {
+    min-width: 100%;
+    width: 100%;
+  }
+  .ffg-main {
+    padding: 0 14px;
+  }
+  .ffg-left {
+    max-width: none;
+  }
+  .ffg-item {
+    flex-direction: column;
+  }
+  .ffg-itemThumb {
+    height: 92px;
+  }
+  .ffg-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .ffg-twoCol {
+    grid-template-columns: 1fr;
+  }
+  .ffg-modalOverlay {
+    justify-content: center;
+    padding: 12px;
+  }
+  .ffg-modalRail {
+    width: 100%;
+    height: calc(100vh - 24px);
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 34px;
+    animation: ffg-slideIn 180ms ease-out;
+  }
+  .ffg-pagination {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ffg-pageBtn {
+    width: 100%;
+  }
+  .ffg-pageNums {
+    justify-content: flex-start;
+  }
+
+  /* Mobile: keep search bar usable */
+  .ffg-phoneNav {
+    gap: 8px;
+  }
+  .ffg-navBrand {
+    min-width: 118px;
+  }
+  .ffg-navBrandSub {
+    display: none;
+  }
+  .ffg-navSearch {
+    min-width: 0;
+    height: 36px;
+    padding: 8px 8px;
+  }
+  .ffg-navSearchIcon {
+    width: 22px;
+    height: 22px;
+  }
+  .ffg-navSearchInput {
+    font-size: 12px;
+  }
+  .ffg-userChip {
+    gap: 6px;
+  }
+
+  /* Mobile: keep nav tab labels small */
+  .ffg-tabs {
+    height: 34px;
+    padding: 0 6px;
+    overflow: hidden;
+  }
+  .ffg-tab {
+    font-size: 9px;
+    letter-spacing: 0.09em;
+  }
+
+  /* Mobile: reduce card heights so grid stays aligned */
+  .ffg-itemThumb {
+    height: 88px;
+  }
+  .ffg-itemThumb--diamonds {
+    height: 118px;
+  }
+
+  .ffg-diamBottom--custom {
+    height: 40px;
+    padding: 5px 6px;
+  }
+
+  .ffg-customDiamondsInput {
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .ffg-customSendBtn {
+    height: 28px;
+    font-size: 10px;
+  }
+
+  .ffg-customErr {
+    bottom: 44px;
+  }
+  .ffg-itemBody {
+    gap: 6px;
+  }
+  .ffg-itemTitle {
+    font-size: 12px;
+    -webkit-line-clamp: 1;
+  }
+  .ffg-cardRow {
+    gap: 8px;
+  }
+  .ffg-cardPrice {
+    height: 28px;
+    padding: 6px 8px;
+    min-width: 84px;
+  }
+  .ffg-cardGiftBtn {
+    height: 28px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .ffg-userDiamondsValue {
+    font-size: 10px;
+  }
+
+  .ffg-authCard {
+    width: 100%;
+  }
+}
+
+@media (max-width: 980px) {
+  .ffg-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
